@@ -39,7 +39,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
         #region Methods
 
-        public virtual  IActionResult ActivityLog()
+        public virtual  IActionResult List()
         {
             if (!_permissionService.Authorize(StandardPermissionProvider.ManageActivityLog))
                 return AccessDeniedView();
@@ -89,7 +89,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //selected tab
             SaveSelectedTabName();
 
-            return RedirectToAction("ActivityLog");
+            return RedirectToAction("List");
         }
 
         public virtual IActionResult ListLogs()
@@ -143,7 +143,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //activity log
             _customerActivityService.InsertActivity("DeleteActivityLog", _localizationService.GetResource("ActivityLog.DeleteActivityLog"));
 
-            return RedirectToAction("ActivityLog");
+            return RedirectToAction("List");
         }
 
         #endregion

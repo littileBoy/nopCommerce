@@ -3,14 +3,7 @@
 @using System.Text.Encodings.Web
 @inject Nop.Services.Plugins.IUploadService uploadService
 
-@{
-    //page title
-    ViewBag.Title = T("Admin.Configuration.Plugins.Local").Text;
-    //active menu item (system name)
-    Html.SetActiveMenuItemSystemName("Plugins");
-}
-
-<form asp-controller="Plugin" asp-action="List" method="post" id="plugins-form">
+<form asp-controller="Plugin" asp-action="Plugins" method="post" id="plugins-form">
     <div class="content-header clearfix">
         <div class="pull-right">
             <button type="submit" name="plugin-reload-grid" class="btn bg-blue">@T("Admin.Configuration.Plugins.ReloadList")</button>
@@ -171,7 +164,7 @@
                                                 '# if(Description) {# <br />#:Description# #} #' +
                                                 //allow configuration only when a plugin has a configuration URL specified
                                                 '<br /> # if(ConfigurationUrl && ConfigurationUrl.length > 0) {# <a class="btn btn-default margin-r-5" href="#=ConfigurationUrl#"><i class="fa fa-cog"></i>@T("Admin.Configuration.Plugins.Fields.Configure")</a>#} #' +
-                                                '<a class="btn btn-default" href="javascript:OpenWindow(\'@Url.Content("~/Admin/Plugin/EditPopup")?systemName=#=SystemName#&btnId=btnRefresh&formId=plugins-form\', 800, 500, true);"><i class="fa fa-pencil"></i>@T("Admin.Common.Edit")</a>',
+                                                '<a class="btn btn-default" href="javascript:OpenWindow(\'@Url.Content("~/Admin/Plugin/EditPopup")?systemName=#=SystemName#&btnId=btnRefreshList&formId=plugins-form\', 800, 500, true);"><i class="fa fa-pencil"></i>@T("Admin.Common.Edit")</a>',
                                             attributes: { style: "vertical-align:top;" },
                                             width: 400
                                         }, {
@@ -238,10 +231,10 @@
                     </div> 
 
                     <div>
-                        <input type="submit" id="btnRefresh" style="display: none" />
+                        <input type="submit" id="btnRefreshList" @*style="display: none"*@ />
                         <script>
                             $(document).ready(function () {
-                                $('#btnRefresh').click(function () {
+                                $('#btnRefreshList').click(function () {
                                     //refresh grid
                                     var grid = $("#plugins-local-grid").data('kendoGrid');
                                     grid.dataSource.read();

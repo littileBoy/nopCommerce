@@ -101,16 +101,16 @@ namespace Nop.Web.Areas.Admin.Controllers
             return View(model);
         }
 
-        public virtual IActionResult List()
-        {
-            if (!_permissionService.Authorize(StandardPermissionProvider.ManagePlugins))
-                return AccessDeniedView();
+        //public virtual IActionResult List()
+        //{
+        //    if (!_permissionService.Authorize(StandardPermissionProvider.ManagePlugins))
+        //        return AccessDeniedView();
 
-            //prepare model
-            var model = _pluginModelFactory.PreparePluginSearchModel(new PluginSearchModel());
+        //    //prepare model
+        //    var model = _pluginModelFactory.PreparePluginSearchModel(new PluginSearchModel());
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         [HttpPost]
         public virtual IActionResult ListSelect(PluginSearchModel searchModel)
@@ -176,7 +176,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             return RedirectToAction("Plugins");
         }
 
-        [HttpPost, ActionName("List")]
+        [HttpPost, ActionName("Plugins")]
         [FormValueRequired(FormValueRequirement.StartsWith, "install-plugin-link-")]
         public virtual IActionResult Install(IFormCollection form)
         {
@@ -220,7 +220,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             return RedirectToAction("Plugins");
         }
 
-        [HttpPost, ActionName("List")]
+        [HttpPost, ActionName("Plugins")]
         [FormValueRequired(FormValueRequirement.StartsWith, "uninstall-plugin-link-")]
         public virtual IActionResult Uninstall(IFormCollection form)
         {
@@ -264,7 +264,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             return RedirectToAction("Plugins");
         }
 
-        [HttpPost, ActionName("List")]
+        [HttpPost, ActionName("Plugins")]
         [FormValueRequired(FormValueRequirement.StartsWith, "delete-plugin-link-")]
         public virtual IActionResult Delete(IFormCollection form)
         {
@@ -300,7 +300,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             return RedirectToAction("Plugins");
         }
 
-        [HttpPost, ActionName("List")]
+        [HttpPost, ActionName("Plugins")]
         [FormValueRequired("plugin-reload-grid")]
         public virtual IActionResult ReloadList()
         {

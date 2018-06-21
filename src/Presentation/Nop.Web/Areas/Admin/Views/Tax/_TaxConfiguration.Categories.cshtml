@@ -1,12 +1,5 @@
 @model TaxCategorySearchModel
 
-@{    
-    //page title
-    ViewBag.Title = T("Admin.Configuration.Tax.Categories").Text;
-    //active menu item (system name)
-    Html.SetActiveMenuItemSystemName("Tax");
-}
-
 <nop-antiforgery-token />
 <div class="panel-group">
     @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.TaxCategoryListButtons })
