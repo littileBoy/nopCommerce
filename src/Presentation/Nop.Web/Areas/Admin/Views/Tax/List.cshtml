@@ -21,8 +21,8 @@
     <div class="content">
         <div class="form-horizontal">
             <nop-tabs id="tax-tabs">
-                <nop-tab asp-name="tab-providers" asp-title="@T("Admin.Configuration.Tax.Providers")" asp-default="true">@await Html.PartialAsync("_TaxConfiguration.Providers", Model.TaxProviders)</nop-tab>
-                <nop-tab asp-name="tab-categories" asp-title="@T("Admin.Configuration.Tax.Categories")">@await Html.PartialAsync("_TaxConfiguration.Categories", Model.TaxCategories)</nop-tab>
+                <nop-tab asp-name="tab-providers" asp-title="@T("Admin.Configuration.Tax.Providers")" asp-default="true">@await Html.PartialAsync("_List.Providers", Model.TaxProviders)</nop-tab>
+                <nop-tab asp-name="tab-categories" asp-title="@T("Admin.Configuration.Tax.Categories")">@await Html.PartialAsync("_List.Categories", Model.TaxCategories)</nop-tab>
             </nop-tabs>
         </div>
     </div>

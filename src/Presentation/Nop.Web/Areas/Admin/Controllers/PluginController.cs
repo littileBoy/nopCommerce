@@ -88,10 +88,10 @@ namespace Nop.Web.Areas.Admin.Controllers
 
         public virtual IActionResult Index()
         {
-            return RedirectToAction("Plugins");
+            return RedirectToAction("List");
         }
 
-        public virtual IActionResult Plugins()
+        public virtual IActionResult List()
         {
             if (!_permissionService.Authorize(StandardPermissionProvider.ManagePlugins))
                 return AccessDeniedView();
@@ -99,18 +99,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             var model = _pluginModelFactory.PreparePluginsConfigurationModel(new PluginsConfigurationModel());
 
             return View(model);
-        }
-
-        //public virtual IActionResult List()
-        //{
-        //    if (!_permissionService.Authorize(StandardPermissionProvider.ManagePlugins))
-        //        return AccessDeniedView();
-
-        //    //prepare model
-        //    var model = _pluginModelFactory.PreparePluginSearchModel(new PluginSearchModel());
-
-        //    return View(model);
-        //}
+        }       
 
         [HttpPost]
         public virtual IActionResult ListSelect(PluginSearchModel searchModel)
@@ -135,7 +124,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 if (archivefile == null || archivefile.Length == 0)
                 {
                     ErrorNotification(_localizationService.GetResource("Admin.Common.UploadFile"));
-                    return RedirectToAction("Plugins");
+                    return RedirectToAction("List");
                 }
 
                 var descriptors = _uploadService.UploadPluginsAndThemes(archivefile);
@@ -173,10 +162,10 @@ namespace Nop.Web.Areas.Admin.Controllers
                 ErrorNotification(exc);
             }
 
-            return RedirectToAction("Plugins");
+            return RedirectToAction("List");
         }
 
-        [HttpPost, ActionName("Plugins")]
+        [HttpPost, ActionName("List")]
         [FormValueRequired(FormValueRequirement.StartsWith, "install-plugin-link-")]
         public virtual IActionResult Install(IFormCollection form)
         {
@@ -194,11 +183,11 @@ namespace Nop.Web.Areas.Admin.Controllers
                 var pluginDescriptor = _pluginFinder.GetPluginDescriptorBySystemName(systemName, LoadPluginsMode.All);
                 if (pluginDescriptor == null)
                     //No plugin found with the specified id
-                    return RedirectToAction("Plugins");
+                    return RedirectToAction("List");
 
                 //check whether plugin is not installed
                 if (pluginDescriptor.Installed)
-                    return RedirectToAction("Plugins");
+                    return RedirectToAction("List");
 
                 //install plugin
                 pluginDescriptor.Instance().Install();
@@ -217,10 +206,10 @@ namespace Nop.Web.Areas.Admin.Controllers
                 ErrorNotification(exc);
             }
 
-            return RedirectToAction("Plugins");
+            return RedirectToAction("List");
         }
 
-        [HttpPost, ActionName("Plugins")]
+        [HttpPost, ActionName("List")]
         [FormValueRequired(FormValueRequirement.StartsWith, "uninstall-plugin-link-")]
         public virtual IActionResult Uninstall(IFormCollection form)
         {
@@ -238,11 +227,11 @@ namespace Nop.Web.Areas.Admin.Controllers
                 var pluginDescriptor = _pluginFinder.GetPluginDescriptorBySystemName(systemName, LoadPluginsMode.All);
                 if (pluginDescriptor == null)
                     //No plugin found with the specified id
-                    return RedirectToAction("Plugins");
+                    return RedirectToAction("List");
 
                 //check whether plugin is installed
                 if (!pluginDescriptor.Installed)
-                    return RedirectToAction("Plugins");
+                    return RedirectToAction("List");
 
                 //uninstall plugin
                 pluginDescriptor.Instance().Uninstall();
@@ -261,10 +250,10 @@ namespace Nop.Web.Areas.Admin.Controllers
                 ErrorNotification(exc);
             }
 
-            return RedirectToAction("Plugins");
+            return RedirectToAction("List");
         }
 
-        [HttpPost, ActionName("Plugins")]
+        [HttpPost, ActionName("List")]
         [FormValueRequired(FormValueRequirement.StartsWith, "delete-plugin-link-")]
         public virtual IActionResult Delete(IFormCollection form)
         {
@@ -281,7 +270,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
                 var pluginDescriptor = _pluginFinder.GetPluginDescriptorBySystemName(systemName, LoadPluginsMode.All);
                 if (!PluginManager.DeletePlugin(pluginDescriptor))
-                    return RedirectToAction("Plugins");
+                    return RedirectToAction("List");
 
                 //activity log
                 _customerActivityService.InsertActivity("DeletePlugin",
@@ -297,10 +286,10 @@ namespace Nop.Web.Areas.Admin.Controllers
                 ErrorNotification(exc);
             }
 
-            return RedirectToAction("Plugins");
+            return RedirectToAction("List");
         }
 
-        [HttpPost, ActionName("Plugins")]
+        [HttpPost, ActionName("List")]
         [FormValueRequired("plugin-reload-grid")]
         public virtual IActionResult ReloadList()
         {
@@ -310,7 +299,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //restart application
             _webHelper.RestartAppDomain();
 
-            return RedirectToAction("Plugins");
+            return RedirectToAction("List");
         }
 
         public virtual IActionResult EditPopup(string systemName)
@@ -321,7 +310,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //try to get a plugin with the specified system name
             var pluginDescriptor = _pluginFinder.GetPluginDescriptorBySystemName(systemName, LoadPluginsMode.All);
             if (pluginDescriptor == null)
-                return RedirectToAction("Plugins");
+                return RedirectToAction("List");
 
             //prepare model
             var model = _pluginModelFactory.PreparePluginModel(null, pluginDescriptor);
@@ -338,7 +327,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //try to get a plugin with the specified system name
             var pluginDescriptor = _pluginFinder.GetPluginDescriptorBySystemName(model.SystemName, LoadPluginsMode.All);
             if (pluginDescriptor == null)
-                return RedirectToAction("Plugins");
+                return RedirectToAction("List");
 
             if (ModelState.IsValid)
             {

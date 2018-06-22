@@ -1,12 +1,5 @@
 @model ProductTemplateSearchModel
 
-@{
-    //page title
-    ViewBag.Title = T("Admin.System.Templates.Product").Text;
-    //active menu item (system name)
-    Html.SetActiveMenuItemSystemName("Templates");
-}
-
 <nop-antiforgery-token />
 <div class="panel-group">
     @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.ProductTemplateListButtons })

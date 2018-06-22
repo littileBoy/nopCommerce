@@ -1,45 +1,38 @@
-@model TopicTemplateSearchModel
-
-@{
-    //page title
-    ViewBag.Title = T("Admin.System.Templates.Topic").Text;
-    //active menu item (system name)
-    Html.SetActiveMenuItemSystemName("Templates");
-}
+@model CategoryTemplateSearchModel
 
 <nop-antiforgery-token />
 <div class="panel-group">
-    @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.TopicTemplateListButtons })
+    @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.CategoryTemplateListButtons })
     <div class="panel panel-default">
         <div class="panel-body">
-            <div id="templates-topic-grid"></div>
+            <div id="templates-category-grid"></div>
 
             <script>
                 $(document).ready(function () {
-                    $("#templates-topic-grid").kendoGrid({
+                    $("#templates-category-grid").kendoGrid({
                         dataSource: {
                             type: "json",
                             transport: {
                                 read: {
-                                    url: "@Html.Raw(Url.Action("TopicTemplates", "Template"))",
+                                    url: "@Html.Raw(Url.Action("CategoryTemplates", "Template"))",
                                     type: "POST",
                                     dataType: "json",
                                     data: addAntiForgeryToken
                                 },
                                 create: {
-                                    url: "@Html.Raw(Url.Action("TopicTemplateAdd", "Template"))",
+                                    url: "@Html.Raw(Url.Action("CategoryTemplateAdd", "Template"))",
                                     type: "POST",
                                     dataType: "json",
                                     data: addAntiForgeryToken
                                 },
                                 update: {
-                                    url: "@Html.Raw(Url.Action("TopicTemplateUpdate", "Template"))",
+                                    url: "@Html.Raw(Url.Action("CategoryTemplateUpdate", "Template"))",
                                     type: "POST",
                                     dataType: "json",
                                     data: addAntiForgeryToken
                                 },
                                 destroy: {
-                                    url: "@Html.Raw(Url.Action("TopicTemplateDelete", "Template"))",
+                                    url: "@Html.Raw(Url.Action("CategoryTemplateDelete", "Template"))",
                                     type: "POST",
                                     dataType: "json",
                                     data: addAntiForgeryToken
@@ -87,15 +80,15 @@
                         scrollable: false,
                         columns: [{
                             field: "Name",
-                            title: "@T("Admin.System.Templates.Topic.Name")",
+                            title: "@T("Admin.System.Templates.Category.Name")",
                             width: 300
                         }, {
                             field: "ViewPath",
-                            title: "@T("Admin.System.Templates.Topic.ViewPath")",
+                            title: "@T("Admin.System.Templates.Category.ViewPath")",
                             width: 300
                         }, {
                             field: "DisplayOrder",
-                            title: "@T("Admin.System.Templates.Topic.DisplayOrder")",
+                            title: "@T("Admin.System.Templates.Category.DisplayOrder")",
                             //integer format
                             format: "{0:0}",
                             width: 100

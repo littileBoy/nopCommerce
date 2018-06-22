@@ -11,7 +11,7 @@
 
 <nop-antiforgery-token />
 
-<form asp-controller="News" asp-action="NewsContent" method="post">
+<form asp-controller="News" asp-action="List" method="post">
     <div class="content-header clearfix">
         <h1 class="pull-left">
             @T("Admin.ContentManagement.News")
@@ -21,8 +21,8 @@
     <div class="content">
         <div class="form-horizontal">
             <nop-tabs id="news-tabs">
-                <nop-tab asp-name="news-items" asp-title="@T("Admin.ContentManagement.News.NewsItems")" asp-default="true">@await Html.PartialAsync("NewsItemsList", Model.NewsItems)</nop-tab>
-                <nop-tab asp-name="news-comments" asp-title="@T("Admin.ContentManagement.News.Comments")">@await Html.PartialAsync("Comments", Model.NewsComments)</nop-tab>
+                <nop-tab asp-name="news-items" asp-title="@T("Admin.ContentManagement.News.NewsItems")" asp-default="true">@await Html.PartialAsync("_List.NewsItems", Model.NewsItems)</nop-tab>
+                <nop-tab asp-name="news-comments" asp-title="@T("Admin.ContentManagement.News.Comments")">@await Html.PartialAsync("_List.Comments", Model.NewsComments)</nop-tab>
             </nop-tabs>
         </div>
     </div>

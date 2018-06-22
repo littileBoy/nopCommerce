@@ -87,18 +87,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
         #endregion
 
-        #region Methods
-
-        public virtual IActionResult BlogContent()
-        {
-            if (!_permissionService.Authorize(StandardPermissionProvider.ManageBlog))
-                return AccessDeniedView();
-
-            //prepare model
-            var model = _blogModelFactory.PrepareBlogContentModel(new BlogContentModel());
-
-            return View(model);
-        }
+        #region Methods        
 
         #region Blog posts
 
@@ -113,7 +102,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 return AccessDeniedView();
 
             //prepare model
-            var model = _blogModelFactory.PrepareBlogPostSearchModel(new BlogPostSearchModel());
+            var model = _blogModelFactory.PrepareBlogContentModel(new BlogContentModel());
 
             return View(model);
         }
@@ -169,7 +158,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 SuccessNotification(_localizationService.GetResource("Admin.ContentManagement.Blog.BlogPosts.Added"));
 
                 if (!continueEditing)
-                    return RedirectToAction("BlogContent");
+                    return RedirectToAction("List");
 
                 //selected tab
                 SaveSelectedTabName();
@@ -192,7 +181,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //try to get a blog post with the specified id
             var blogPost = _blogService.GetBlogPostById(id);
             if (blogPost == null)
-                return RedirectToAction("BlogContent");
+                return RedirectToAction("List");
 
             //prepare model
             var model = _blogModelFactory.PrepareBlogPostModel(null, blogPost);
@@ -209,7 +198,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //try to get a blog post with the specified id
             var blogPost = _blogService.GetBlogPostById(model.Id);
             if (blogPost == null)
-                return RedirectToAction("BlogContent");
+                return RedirectToAction("List");
 
             if (ModelState.IsValid)
             {
@@ -232,7 +221,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 SuccessNotification(_localizationService.GetResource("Admin.ContentManagement.Blog.BlogPosts.Updated"));
 
                 if (!continueEditing)
-                    return RedirectToAction("BlogContent");
+                    return RedirectToAction("List");
 
                 //selected tab
                 SaveSelectedTabName();
@@ -256,7 +245,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //try to get a blog post with the specified id
             var blogPost = _blogService.GetBlogPostById(id);
             if (blogPost == null)
-                return RedirectToAction("BlogContent");
+                return RedirectToAction("List");
 
             _blogService.DeleteBlogPost(blogPost);
 
@@ -266,7 +255,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
             SuccessNotification(_localizationService.GetResource("Admin.ContentManagement.Blog.BlogPosts.Deleted"));
 
-            return RedirectToAction("BlogContent");
+            return RedirectToAction("List");
         }
 
         #endregion
@@ -281,7 +270,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //try to get a blog post with the specified id
             var blogPost = _blogService.GetBlogPostById(filterByBlogPostId ?? 0);
             if (blogPost == null && filterByBlogPostId.HasValue)
-                return RedirectToAction("BlogContent");
+                return RedirectToAction("List");
 
             ViewBag.FilterByBlogPostId = filterByBlogPostId;
 

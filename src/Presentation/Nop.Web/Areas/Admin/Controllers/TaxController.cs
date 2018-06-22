@@ -46,7 +46,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
         #region Methods
 
-        public virtual IActionResult TaxConfiguration()
+        public virtual IActionResult List()
         {
             if (!_permissionService.Authorize(StandardPermissionProvider.ManageTaxSettings))
                 return AccessDeniedView();
@@ -88,16 +88,16 @@ namespace Nop.Web.Areas.Admin.Controllers
                 return AccessDeniedView();
 
             if (string.IsNullOrEmpty(systemName))
-                return RedirectToAction("TaxConfiguration");
+                return RedirectToAction("List");
 
             var taxProvider = _taxService.LoadTaxProviderBySystemName(systemName);
             if (taxProvider == null)
-                return RedirectToAction("TaxConfiguration");
+                return RedirectToAction("List");
 
             _taxSettings.ActiveTaxProviderSystemName = systemName;
             _settingService.SaveSetting(_taxSettings);
 
-            return RedirectToAction("TaxConfiguration");
+            return RedirectToAction("List");
         }
 
         #endregion

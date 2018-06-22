@@ -87,18 +87,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
         #endregion
 
-        #region Methods
-
-        public virtual IActionResult NewsContent()
-        {
-            if (!_permissionService.Authorize(StandardPermissionProvider.ManageNews))
-                return AccessDeniedView();
-
-            //prepare model
-            var model = _newsModelFactory.PrepareNewsContentModel(new NewsContentModel());
-
-            return View(model);
-        }
+        #region Methods        
 
         #region News items
 
@@ -113,7 +102,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 return AccessDeniedView();
 
             //prepare model
-            var model = _newsModelFactory.PrepareNewsItemSearchModel(new NewsItemSearchModel());
+            var model = _newsModelFactory.PrepareNewsContentModel(new NewsContentModel());
 
             return View(model);
         }
@@ -169,7 +158,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 SuccessNotification(_localizationService.GetResource("Admin.ContentManagement.News.NewsItems.Added"));
 
                 if (!continueEditing)
-                    return RedirectToAction("NewsContent");
+                    return RedirectToAction("List");
 
                 //selected tab
                 SaveSelectedTabName();
@@ -192,7 +181,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //try to get a news item with the specified id
             var newsItem = _newsService.GetNewsById(id);
             if (newsItem == null)
-                return RedirectToAction("NewsContent");
+                return RedirectToAction("List");
 
             //prepare model
             var model = _newsModelFactory.PrepareNewsItemModel(null, newsItem);
@@ -209,7 +198,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //try to get a news item with the specified id
             var newsItem = _newsService.GetNewsById(model.Id);
             if (newsItem == null)
-                return RedirectToAction("NewsContent");
+                return RedirectToAction("List");
 
             if (ModelState.IsValid)
             {
@@ -232,7 +221,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 SuccessNotification(_localizationService.GetResource("Admin.ContentManagement.News.NewsItems.Updated"));
 
                 if (!continueEditing)
-                    return RedirectToAction("NewsContent");
+                    return RedirectToAction("List");
 
                 //selected tab
                 SaveSelectedTabName();
@@ -256,7 +245,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //try to get a news item with the specified id
             var newsItem = _newsService.GetNewsById(id);
             if (newsItem == null)
-                return RedirectToAction("NewsContent");
+                return RedirectToAction("List");
 
             _newsService.DeleteNews(newsItem);
 
@@ -266,7 +255,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
             SuccessNotification(_localizationService.GetResource("Admin.ContentManagement.News.NewsItems.Deleted"));
 
-            return RedirectToAction("NewsContent");
+            return RedirectToAction("List");
         }
 
         #endregion
@@ -281,7 +270,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //try to get a news item with the specified id
             var newsItem = _newsService.GetNewsById(filterByNewsItemId ?? 0);
             if (newsItem == null && filterByNewsItemId.HasValue)
-                return RedirectToAction("NewsContent");
+                return RedirectToAction("List");
 
             ViewBag.FilterByNewsItemId = filterByNewsItemId;
 
