@@ -12,13 +12,13 @@ namespace Nop.Web.Areas.Admin.Models.Orders
 
         public int ProductId { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.Fields.Name")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.Fields.Name")]
         public string ProductName { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.Fields.TotalAmount")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.Fields.TotalAmount")]
         public string TotalAmount { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.Fields.TotalQuantity")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.Fields.TotalQuantity")]
         public decimal TotalQuantity { get; set; }
 
         #endregion

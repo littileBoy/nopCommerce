@@ -29,33 +29,33 @@ namespace Nop.Web.Areas.Admin.Models.Orders
 
         #region Properties
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.StartDate")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.StartDate")]
         [UIHint("DateNullable")]
         public DateTime? StartDate { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.EndDate")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.EndDate")]
         [UIHint("DateNullable")]
         public DateTime? EndDate { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.Store")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.Store")]
         public int StoreId { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.OrderStatus")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.OrderStatus")]
         public int OrderStatusId { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.PaymentStatus")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.PaymentStatus")]
         public int PaymentStatusId { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.Category")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.Category")]
         public int CategoryId { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.Manufacturer")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.Manufacturer")]
         public int ManufacturerId { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.BillingCountry")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.BillingCountry")]
         public int BillingCountryId { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Bestsellers.Vendor")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Bestsellers.Vendor")]
         public int VendorId { get; set; }
 
         public IList<SelectListItem> AvailableStores { get; set; }

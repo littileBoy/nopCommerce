@@ -1094,22 +1094,22 @@ namespace Nop.Web.Areas.Admin.Factories
             {
                 new RegisteredCustomersReportModel
                 {
-                    Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.7days"),
+                    Period = _localizationService.GetResource("Admin.Reports.Customers.RegisteredCustomers.Fields.Period.7days"),
                     Customers = _customerReportService.GetRegisteredCustomersReport(7)
                 },
                 new RegisteredCustomersReportModel
                 {
-                    Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.14days"),
+                    Period = _localizationService.GetResource("Admin.Reports.Customers.RegisteredCustomers.Fields.Period.14days"),
                     Customers = _customerReportService.GetRegisteredCustomersReport(14)
                 },
                 new RegisteredCustomersReportModel
                 {
-                    Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.month"),
+                    Period = _localizationService.GetResource("Admin.Reports.Customers.RegisteredCustomers.Fields.Period.month"),
                     Customers = _customerReportService.GetRegisteredCustomersReport(30)
                 },
                 new RegisteredCustomersReportModel
                 {
-                    Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.year"),
+                    Period = _localizationService.GetResource("Admin.Reports.Customers.RegisteredCustomers.Fields.Period.year"),
                     Customers = _customerReportService.GetRegisteredCustomersReport(365)
                 }
             };

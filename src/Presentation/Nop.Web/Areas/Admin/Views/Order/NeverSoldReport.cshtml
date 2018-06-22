@@ -2,7 +2,7 @@
 
 @{
     //page title
-    ViewBag.Title = T("Admin.SalesReport.NeverSold").Text;
+    ViewBag.Title = T("Admin.Reports.Sales.NeverSold").Text;
     //active menu item (system name)
     Html.SetActiveMenuItemSystemName("Products never purchased");
 }
@@ -10,7 +10,7 @@
 <nop-antiforgery-token />
 <div class="content-header clearfix">
     <h1 class="pull-left">
-        @T("Admin.SalesReport.NeverSold")
+        @T("Admin.Reports.Sales.NeverSold")
     </h1>
     <div class="pull-right">
         &nbsp;
@@ -79,7 +79,7 @@
                             <div class="col-md-7 col-md-offset-5">
                                 <button type="button" id="search-neversoldreport" class="btn btn-primary btn-search">
                                     <i class="fa fa-line-chart"></i>
-                                    @T("Admin.SalesReport.NeverSold.RunReport")
+                                    @T("Admin.Reports.Sales.NeverSold.RunReport")
                                 </button>
                             </div>
                         </div>
@@ -141,7 +141,7 @@
                                 scrollable: false,
                                 columns: [{
                                     field: "ProductName",
-                                    title: "@T("Admin.SalesReport.NeverSold.Fields.Name")"
+                                    title: "@T("Admin.Reports.Sales.NeverSold.Fields.Name")"
                                 }, {
                                     field: "ProductId",
                                     title: "@T("Admin.Common.View")",

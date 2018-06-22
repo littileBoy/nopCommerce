@@ -21,7 +21,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
 
         #region Properties
 
-        [NopResourceDisplayName("Admin.Catalog.LowStockReport.SearchPublished")]
+        [NopResourceDisplayName("Admin.Reports.LowStock.SearchPublished")]
         public int SearchPublishedId { get; set; }
         public IList<SelectListItem> AvailablePublishedOptions { get; set; }
 

@@ -2,7 +2,7 @@
 
 @{
     //page title
-    ViewBag.Title = T("Admin.SalesReport.Country").Text;
+    ViewBag.Title = T("Admin.Reports.Sales.Country").Text;
     //active menu item (system name)
     Html.SetActiveMenuItemSystemName("Country report");
 }
@@ -10,7 +10,7 @@
 <nop-antiforgery-token />
 <div class="content-header clearfix">
     <h1 class="pull-left">
-        @T("Admin.SalesReport.Country")
+        @T("Admin.Reports.Sales.Country")
     </h1>
     <div class="pull-right">
         &nbsp;
@@ -60,7 +60,7 @@
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="button" id="search-countryreport" class="btn btn-primary btn-search">
                                         <i class="fa fa-line-chart"></i>
-                                        @T("Admin.SalesReport.Country.RunReport")
+                                        @T("Admin.Reports.Sales.Country.RunReport")
                                     </button>
                                 </div>
                             </div>
@@ -118,13 +118,13 @@
                                 scrollable: false,
                                 columns: [{
                                     field: "CountryName",
-                                    title: "@T("Admin.SalesReport.Country.Fields.CountryName")"
+                                    title: "@T("Admin.Reports.Sales.Country.Fields.CountryName")"
                                 }, {
                                     field: "TotalOrders",
-                                    title: "@T("Admin.SalesReport.Country.Fields.TotalOrders")"
+                                    title: "@T("Admin.Reports.Sales.Country.Fields.TotalOrders")"
                                 }, {
                                     field: "SumOrders",
-                                    title: "@T("Admin.SalesReport.Country.Fields.SumOrders")"
+                                    title: "@T("Admin.Reports.Sales.Country.Fields.SumOrders")"
                                 }]
                             });
                         });

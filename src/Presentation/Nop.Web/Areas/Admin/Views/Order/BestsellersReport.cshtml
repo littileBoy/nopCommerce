@@ -2,7 +2,7 @@
 
 @{
     //page title
-    ViewBag.Title = T("Admin.SalesReport.Bestsellers").Text;
+    ViewBag.Title = T("Admin.Reports.Sales.Bestsellers").Text;
     //active menu item (system name)
     Html.SetActiveMenuItemSystemName("Bestsellers");
 }
@@ -10,7 +10,7 @@
 <nop-antiforgery-token />
 <div class="content-header clearfix">
     <h1 class="pull-left">
-        @T("Admin.SalesReport.Bestsellers")
+        @T("Admin.Reports.Sales.Bestsellers")
     </h1>
     <div class="pull-right">
         &nbsp;
@@ -104,7 +104,7 @@
                         <div class="col-md-7 col-md-offset-5">
                             <button type="button" id="search-salesreport" class="btn btn-primary btn-search">
                                 <i class="fa fa-line-chart"></i>
-                                @T("Admin.SalesReport.Bestsellers.RunReport")
+                                @T("Admin.Reports.Sales.Bestsellers.RunReport")
                             </button>
                         </div>
                     </div>
@@ -169,13 +169,13 @@
                                 scrollable: false,
                                 columns: [{
                                     field: "ProductName",
-                                    title: "@T("Admin.SalesReport.Bestsellers.Fields.Name")"
+                                    title: "@T("Admin.Reports.Sales.Bestsellers.Fields.Name")"
                                 }, {
                                     field: "TotalQuantity",
-                                    title: "@T("Admin.SalesReport.Bestsellers.Fields.TotalQuantity")"
+                                    title: "@T("Admin.Reports.Sales.Bestsellers.Fields.TotalQuantity")"
                                 },{
                                     field: "TotalAmount",
-                                    title: "@T("Admin.SalesReport.Bestsellers.Fields.TotalAmount")"
+                                    title: "@T("Admin.Reports.Sales.Bestsellers.Fields.TotalAmount")"
                                 },{
                                     field: "ProductId",
                                     title: "@T("Admin.Common.View")",

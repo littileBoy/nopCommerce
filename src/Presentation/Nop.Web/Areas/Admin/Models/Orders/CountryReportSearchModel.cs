@@ -24,18 +24,18 @@ namespace Nop.Web.Areas.Admin.Models.Orders
 
         #region Properties
 
-        [NopResourceDisplayName("Admin.SalesReport.Country.StartDate")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Country.StartDate")]
         [UIHint("DateNullable")]
         public DateTime? StartDate { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Country.EndDate")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Country.EndDate")]
         [UIHint("DateNullable")]
         public DateTime? EndDate { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Country.OrderStatus")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Country.OrderStatus")]
         public int OrderStatusId { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Country.PaymentStatus")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Country.PaymentStatus")]
         public int PaymentStatusId { get; set; }
 
         public IList<SelectListItem> AvailableOrderStatuses { get; set; }

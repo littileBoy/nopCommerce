@@ -29,21 +29,21 @@ namespace Nop.Web.Areas.Admin.Models.Customers
         //TODO: move from int to enum
         public int OrderBy { get; set; }
 
-        [NopResourceDisplayName("Admin.Customers.Reports.BestBy.StartDate")]
+        [NopResourceDisplayName("Admin.Reports.Customers.BestBy.StartDate")]
         [UIHint("DateNullable")]
         public DateTime? StartDate { get; set; }
 
-        [NopResourceDisplayName("Admin.Customers.Reports.BestBy.EndDate")]
+        [NopResourceDisplayName("Admin.Reports.Customers.BestBy.EndDate")]
         [UIHint("DateNullable")]
         public DateTime? EndDate { get; set; }
 
-        [NopResourceDisplayName("Admin.Customers.Reports.BestBy.OrderStatus")]
+        [NopResourceDisplayName("Admin.Reports.Customers.BestBy.OrderStatus")]
         public int OrderStatusId { get; set; }
 
-        [NopResourceDisplayName("Admin.Customers.Reports.BestBy.PaymentStatus")]
+        [NopResourceDisplayName("Admin.Reports.Customers.BestBy.PaymentStatus")]
         public int PaymentStatusId { get; set; }
 
-        [NopResourceDisplayName("Admin.Customers.Reports.BestBy.ShippingStatus")]
+        [NopResourceDisplayName("Admin.Reports.Customers.BestBy.ShippingStatus")]
         public int ShippingStatusId { get; set; }
 
         public IList<SelectListItem> AvailableOrderStatuses { get; set; }

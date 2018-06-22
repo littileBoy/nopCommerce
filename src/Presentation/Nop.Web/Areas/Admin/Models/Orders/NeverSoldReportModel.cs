@@ -12,7 +12,7 @@ namespace Nop.Web.Areas.Admin.Models.Orders
 
         public int ProductId { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.NeverSold.Fields.Name")]
+        [NopResourceDisplayName("Admin.Reports.Sales.NeverSold.Fields.Name")]
         public string ProductName { get; set; }
 
         #endregion

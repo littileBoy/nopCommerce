@@ -12,13 +12,13 @@ namespace Nop.Web.Areas.Admin.Models.Customers
 
         public int CustomerId { get; set; }
 
-        [NopResourceDisplayName("Admin.Customers.Reports.BestBy.Fields.Customer")]
+        [NopResourceDisplayName("Admin.Reports.Customers.BestBy.Fields.Customer")]
         public string CustomerName { get; set; }
 
-        [NopResourceDisplayName("Admin.Customers.Reports.BestBy.Fields.OrderTotal")]
+        [NopResourceDisplayName("Admin.Reports.Customers.BestBy.Fields.OrderTotal")]
         public string OrderTotal { get; set; }
 
-        [NopResourceDisplayName("Admin.Customers.Reports.BestBy.Fields.OrderCount")]
+        [NopResourceDisplayName("Admin.Reports.Customers.BestBy.Fields.OrderCount")]
         public decimal OrderCount { get; set; }
         
         #endregion

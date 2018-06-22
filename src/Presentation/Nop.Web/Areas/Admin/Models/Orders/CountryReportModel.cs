@@ -10,13 +10,13 @@ namespace Nop.Web.Areas.Admin.Models.Orders
     {
         #region Properties
 
-        [NopResourceDisplayName("Admin.SalesReport.Country.Fields.CountryName")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Country.Fields.CountryName")]
         public string CountryName { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Country.Fields.TotalOrders")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Country.Fields.TotalOrders")]
         public int TotalOrders { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.Country.Fields.SumOrders")]
+        [NopResourceDisplayName("Admin.Reports.Sales.Country.Fields.SumOrders")]
         public string SumOrders { get; set; }
 
         #endregion

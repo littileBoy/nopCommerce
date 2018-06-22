@@ -10,10 +10,10 @@ namespace Nop.Web.Areas.Admin.Models.Customers
     {
         #region Properties
 
-        [NopResourceDisplayName("Admin.Customers.Reports.RegisteredCustomers.Fields.Period")]
+        [NopResourceDisplayName("Admin.Reports.Customers.RegisteredCustomers.Fields.Period")]
         public string Period { get; set; }
 
-        [NopResourceDisplayName("Admin.Customers.Reports.RegisteredCustomers.Fields.Customers")]
+        [NopResourceDisplayName("Admin.Reports.Customers.RegisteredCustomers.Fields.Customers")]
         public int Customers { get; set; }
 
         #endregion

@@ -26,30 +26,30 @@ namespace Nop.Web.Areas.Admin.Models.Orders
 
         #region Properties
 
-        [NopResourceDisplayName("Admin.SalesReport.NeverSold.StartDate")]
+        [NopResourceDisplayName("Admin.Reports.Sales.NeverSold.StartDate")]
         [UIHint("DateNullable")]
         public DateTime? StartDate { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.NeverSold.EndDate")]
+        [NopResourceDisplayName("Admin.Reports.Sales.NeverSold.EndDate")]
         [UIHint("DateNullable")]
         public DateTime? EndDate { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.NeverSold.SearchCategory")]
+        [NopResourceDisplayName("Admin.Reports.Sales.NeverSold.SearchCategory")]
         public int SearchCategoryId { get; set; }
 
         public IList<SelectListItem> AvailableCategories { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.NeverSold.SearchManufacturer")]
+        [NopResourceDisplayName("Admin.Reports.Sales.NeverSold.SearchManufacturer")]
         public int SearchManufacturerId { get; set; }
 
         public IList<SelectListItem> AvailableManufacturers { get; set; }
 
-        [NopResourceDisplayName("Admin.SalesReport.NeverSold.SearchStore")]
+        [NopResourceDisplayName("Admin.Reports.Sales.NeverSold.SearchStore")]
         public int SearchStoreId { get; set; }
 
         public IList<SelectListItem> AvailableStores { get; set; }
         
-        [NopResourceDisplayName("Admin.SalesReport.NeverSold.SearchVendor")]
+        [NopResourceDisplayName("Admin.Reports.Sales.NeverSold.SearchVendor")]
         public int SearchVendorId { get; set; }
 
         public IList<SelectListItem> AvailableVendors { get; set; }

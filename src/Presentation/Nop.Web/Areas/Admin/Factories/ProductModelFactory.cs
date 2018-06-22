@@ -1596,17 +1596,17 @@ namespace Nop.Web.Areas.Admin.Factories
             searchModel.AvailablePublishedOptions.Add(new SelectListItem
             {
                 Value = "0",
-                Text = _localizationService.GetResource("Admin.Catalog.LowStockReport.SearchPublished.All")
+                Text = _localizationService.GetResource("Admin.Reports.LowStock.SearchPublished.All")
             });
             searchModel.AvailablePublishedOptions.Add(new SelectListItem
             {
                 Value = "1",
-                Text = _localizationService.GetResource("Admin.Catalog.LowStockReport.SearchPublished.PublishedOnly")
+                Text = _localizationService.GetResource("Admin.Reports.LowStock.SearchPublished.PublishedOnly")
             });
             searchModel.AvailablePublishedOptions.Add(new SelectListItem
             {
                 Value = "2",
-                Text = _localizationService.GetResource("Admin.Catalog.LowStockReport.SearchPublished.UnpublishedOnly")
+                Text = _localizationService.GetResource("Admin.Reports.LowStock.SearchPublished.UnpublishedOnly")
             });
 
             //prepare page parameters
