@@ -1,7 +1,7 @@
 ﻿using Nop.Web.Framework.Mvc.ModelBinding;
 using Nop.Web.Framework.Models;
 
-namespace Nop.Web.Areas.Admin.Models.Orders
+namespace Nop.Web.Areas.Admin.Models.Reports
 {
     /// <summary>
     /// Represents a never sold products report model

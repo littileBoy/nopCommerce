@@ -1179,7 +1179,7 @@ set @resources='
     <Value></Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Reports.LowStock">
-  <Value>Low stock report</Value>
+  <Value>Low stock</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Reports.LowStock.SearchPublished">
     <Value>Published</Value>
@@ -1476,7 +1476,7 @@ set @resources='
     <Value></Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Reports.Sales.Country">
-    <Value>Country report</Value>
+    <Value>Country sales</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Reports.Sales.Country.EndDate">
     <Value>End date</Value>

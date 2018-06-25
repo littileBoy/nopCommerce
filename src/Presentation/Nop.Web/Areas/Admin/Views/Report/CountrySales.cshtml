@@ -4,7 +4,7 @@
     //page title
     ViewBag.Title = T("Admin.Reports.Sales.Country").Text;
     //active menu item (system name)
-    Html.SetActiveMenuItemSystemName("Country report");
+    Html.SetActiveMenuItemSystemName("Country sales");
 }
 
 <nop-antiforgery-token />
@@ -80,7 +80,7 @@
                                     type: "json",
                                     transport: {
                                         read: {
-                                            url: "@Html.Raw(Url.Action("CountryReportList", "Order"))",
+                                            url: "@Html.Raw(Url.Action("CountrySalesList", "Report"))",
                                             type: "POST",
                                             dataType: "json",
                                             data: function() {

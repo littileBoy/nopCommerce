@@ -4,10 +4,10 @@
     //page title
     ViewBag.Title = T("Admin.Reports.LowStock").Text;
     //active menu item (system name)
-    Html.SetActiveMenuItemSystemName("Low stock report");
+    Html.SetActiveMenuItemSystemName("Low stock");
 }
 
-<form asp-controller="Product" asp-action="LowStockReport" method="post">
+<form asp-controller="Report" asp-action="LowStock" method="post">
     <div class="content-header clearfix">
         <h1 class="pull-left">
             @T("Admin.Reports.LowStock")
@@ -56,7 +56,7 @@
                                         type: "json",
                                         transport: {
                                             read: {
-                                                url: "@Html.Raw(Url.Action("LowStockReportList", "Product"))",
+                                                url: "@Html.Raw(Url.Action("LowStockList", "Report"))",
                                                 type: "POST",
                                                 dataType: "json",
                                                 data: function() {
@@ -121,7 +121,7 @@
                                             width: 100,
                                             headerAttributes: { style: "text-align:center" },
                                             attributes: { style: "text-align:center" },
-                                            template: '<a class="btn btn-default" href="Edit/#=Id#"><i class="fa fa-pencil"></i>@T("Admin.Common.Edit")</a>'                                }
+                                            template: '<a class="btn btn-default" href="@Url.Content("~/Admin/Product/Edit/")#=Id#"><i class="fa fa-pencil"></i>@T("Admin.Common.Edit")</a>'                                }
                                     ]
                                 });
                             });

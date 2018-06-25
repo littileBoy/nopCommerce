@@ -24,9 +24,9 @@
 <div class="content">
     <div class="form-horizontal">
         <nop-tabs id="customer-reports">
-            <nop-tab asp-name="tab-ordertotal" asp-title="@T("Admin.Reports.Customers.BestBy.BestByOrderTotal")" asp-default="true">@await Html.PartialAsync("_ReportBestCustomersByOrderTotal", Model)</nop-tab>
-            <nop-tab asp-name="tab-numberoforders" asp-title="@T("Admin.Reports.Customers.BestBy.BestByNumberOfOrders")">@await Html.PartialAsync("_ReportBestCustomersByNumberOfOrders", Model)</nop-tab>
-            <nop-tab asp-name="tab-registeredcustomers" asp-title="@T("Admin.Reports.Customers.RegisteredCustomers")">@await Html.PartialAsync("_ReportRegisteredCustomers", Model)</nop-tab>
+            <nop-tab asp-name="tab-ordertotal" asp-title="@T("Admin.Reports.Customers.BestBy.BestByOrderTotal")" asp-default="true">@await Html.PartialAsync("_Customers.BestCustomersByOrderTotal", Model)</nop-tab>
+            <nop-tab asp-name="tab-numberoforders" asp-title="@T("Admin.Reports.Customers.BestBy.BestByNumberOfOrders")">@await Html.PartialAsync("_Customers.BestCustomersByNumberOfOrders", Model)</nop-tab>
+            <nop-tab asp-name="tab-registeredcustomers" asp-title="@T("Admin.Reports.Customers.RegisteredCustomers")">@await Html.PartialAsync("_Customers.RegisteredCustomers", Model)</nop-tab>
         </nop-tabs>
     </div>
 </div>
