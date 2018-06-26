@@ -96,10 +96,12 @@ namespace Nop.Web.Areas.Admin.Controllers
             return RedirectToAction("List");
         }
 
-        public virtual IActionResult List()
+        public virtual IActionResult List(int? filterByNewsItemId)
         {
             if (!_permissionService.Authorize(StandardPermissionProvider.ManageNews))
                 return AccessDeniedView();
+
+            ViewBag.FilterByNewsItemId = filterByNewsItemId;
 
             //prepare model
             var model = _newsModelFactory.PrepareNewsContentModel(new NewsContentModel());
@@ -271,8 +273,6 @@ namespace Nop.Web.Areas.Admin.Controllers
             var newsItem = _newsService.GetNewsById(filterByNewsItemId ?? 0);
             if (newsItem == null && filterByNewsItemId.HasValue)
                 return RedirectToAction("List");
-
-            ViewBag.FilterByNewsItemId = filterByNewsItemId;
 
             //prepare model
             var model = _newsModelFactory.PrepareNewsCommentSearchModel(new NewsCommentSearchModel(), newsItem);

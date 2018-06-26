@@ -96,13 +96,15 @@ namespace Nop.Web.Areas.Admin.Controllers
             return RedirectToAction("List");
         }
 
-        public virtual IActionResult List()
+        public virtual IActionResult List(int? filterByBlogPostId)
         {
             if (!_permissionService.Authorize(StandardPermissionProvider.ManageBlog))
                 return AccessDeniedView();
 
+            ViewBag.FilterByBlogPostId = filterByBlogPostId;
+
             //prepare model
-            var model = _blogModelFactory.PrepareBlogContentModel(new BlogContentModel());
+            var model = _blogModelFactory.PrepareBlogContentModel(new BlogContentModel());            
 
             return View(model);
         }
@@ -271,8 +273,6 @@ namespace Nop.Web.Areas.Admin.Controllers
             var blogPost = _blogService.GetBlogPostById(filterByBlogPostId ?? 0);
             if (blogPost == null && filterByBlogPostId.HasValue)
                 return RedirectToAction("List");
-
-            ViewBag.FilterByBlogPostId = filterByBlogPostId;
 
             //prepare model
             var model = _blogModelFactory.PrepareBlogCommentSearchModel(new BlogCommentSearchModel(), blogPost);
